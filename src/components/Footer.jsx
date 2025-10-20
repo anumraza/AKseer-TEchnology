@@ -54,7 +54,7 @@ const Footer = () => {
                                 <strong>Factory:</strong><br />
                                 Plot No. 55, Sector 27, Industrial Area, Korangi, Karachi
                             </p>
-                            <p className="flex flex-col">
+                            <p className="flex flex-col items-center">
                                 <a href="tel:02135060170" className="flex items-center hover:text-blue-600">
                                     📞 021-35060170
                                 </a>
