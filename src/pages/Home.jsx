@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
+
 const Home = () => {
     const features = [
         {
@@ -57,13 +58,15 @@ const Home = () => {
                         for homes and businesses at unprecedented efficiency.
                     </p>
                     <div className="space-x-4 space-y-4 sm:space-y-0 animate-fade-in-up delay-500">
-                        <Link
-                            to="/services"
+                        <button
+                            onClick={() => {
+                                window.location.href = "mailto:info@AkseerTech.com";
+                            }}
                             className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-1 inline-block"
                             aria-label="Learn more about our wind turbine services"
                         >
                             Discover Solutions
-                        </Link>
+                        </button>
                         <Link
                             to="/about"
                             className="border-2 border-emerald-400/80 hover:border-emerald-300 bg-transparent hover:bg-emerald-400/10 text-white px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 inline-block"
