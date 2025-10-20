@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  base: "/AKseer-TEchnology/", // 👈 ADD THIS LINE — matches your repo name
   build: {
     rollupOptions: {
       output: {

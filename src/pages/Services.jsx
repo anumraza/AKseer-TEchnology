@@ -114,7 +114,7 @@ const Services = () => {
                         </div>
                         <div>
                             <img
-                                src="/images/services-hybrid.jpg"
+                                src={`${import.meta.env.BASE_URL}images/services-hybrid1.jpg`}
                                 alt="Hybrid Wind and Solar Solution"
                                 className="rounded-lg shadow-lg w-full h-auto"
                             />
@@ -132,7 +132,7 @@ const Services = () => {
                     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div className="bg-primary text-white p-8">
-                                <h3 className="text-2xl font-bold mb-6">Pankh v2 Features</h3>
+                                <h3 className="text-2xl font-bold mb-6">Akseer Pankh Features</h3>
                                 <ul className="space-y-4">
                                     <li className="flex items-center space-x-3">
                                         <span className="text-accent text-xl">⚡</span>
@@ -183,7 +183,7 @@ const Services = () => {
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold mb-6">Ready to Harness Wind Energy?</h2>
                     <p className="text-xl mb-8 max-w-2xl mx-auto">
-                        Join the renewable energy revolution with Pankh v2 and start saving on your energy costs today.
+                        Join the renewable energy revolution with Akseer Pankh and start saving on your energy costs today.
                     </p>
                     <button className="bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-500 transition duration-300 text-lg">
                         Contact Us for Installation

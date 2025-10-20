@@ -14,7 +14,7 @@ const About = () => {
         },
         {
             year: "2024",
-            title: "Pankh v2 Launch",
+            title: "Akseer Pankh Launch",
             description: "Latest generation wind turbine with enhanced efficiency and reliability"
         }
     ];
@@ -52,7 +52,7 @@ const About = () => {
                                 dedicating over 14 years to research and development of efficient wind energy solutions.
                             </p>
                             <p className="text-lg text-gray-600 mb-6">
-                                Our flagship product, <strong>Pankh v2</strong>, represents the culmination of years
+                                Our flagship product, <strong>Akseer Pankh</strong>, represents the culmination of years
                                 of expertise, designed to bring sustainable wind power to homes, businesses, and
                                 communities across diverse environments.
                             </p>
@@ -63,10 +63,15 @@ const About = () => {
                             </div>
                         </div>
                         <div>
-                            <img
-                                src="/images/aboutUs.jpg"
-                                alt="Akseer Technology Team"
+                            <video
+                                src={`${import.meta.env.BASE_URL}images/aboutUs.mp4`}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
                                 className="rounded-lg shadow-lg w-full h-auto"
+                                width={600}
+                                height={400}
                             />
                         </div>
                     </div>
@@ -94,7 +99,7 @@ const About = () => {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-                            Pankh v2 Technology Advantages
+                            Akseer Pankh Technology Advantages
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {advantages.map((advantage, index) => (

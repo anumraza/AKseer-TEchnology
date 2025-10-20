@@ -37,8 +37,8 @@ const Home = () => {
     return (
         <div>
             <SEO
-                title="Pankh v2 Wind Turbine - Sustainable Home & Industrial Energy Solutions"
-                description="Discover Pankh v2 wind turbine by Akseer Technology. Cost-effective, compact wind energy solutions for homes, buildings, farms & industries. 100 kWh daily capacity."
+                title="Akseer Pankh Wind Turbine - Sustainable Home & Industrial Energy Solutions"
+                description="Discover Akseer Pankh wind turbine by Akseer Technology. Cost-effective, compact wind energy solutions for homes, buildings, farms & industries. 100 kWh daily capacity."
             />
 
             {/* NEW ANIMATED HERO SECTION */}
@@ -47,7 +47,7 @@ const Home = () => {
                 {/* Content */}
                 <div className="relative z-10 container mx-auto px-4 text-center">
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-                        Pankh <span className="text-emerald-300 drop-shadow-lg">v2</span>
+                        Akseer <span className="text-emerald-300 drop-shadow-lg">Pankh</span>
                     </h1>
                     <p className="text-xl md:text-3xl mb-8 font-light animate-fade-in-up delay-200 text-emerald-100">
                         Harness Nature's Power for Your Energy Needs
@@ -79,7 +79,7 @@ const Home = () => {
             <section aria-labelledby="features-heading" className="py-16 bg-gradient-to-b from-slate-50 to-blue-50">
                 <div className="container mx-auto px-4">
                     <h2 id="features-heading" className="text-4xl font-bold text-center mb-12 text-slate-800">
-                        Why Choose Pankh v2 Wind Turbine?
+                        Why Choose Akseer Pankh Wind Turbine?
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
@@ -102,11 +102,13 @@ const Home = () => {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <img
-                                src="/images/home.jpg"
-                                alt="Pankh v2 Wind Turbine installation on rooftop"
+                            <video
+                                src={`${import.meta.env.BASE_URL}images/home.mp4`}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
                                 className="rounded-lg shadow-lg w-full h-auto"
-                                loading="lazy"
                                 width={600}
                                 height={400}
                             />
@@ -116,7 +118,7 @@ const Home = () => {
                                 Perfect For Every Setting
                             </h2>
                             <p className="text-lg text-gray-600 mb-6">
-                                Pankh v2 wind turbine is designed to meet diverse energy needs across various environments:
+                                Akseer Pankh wind turbine is designed to meet diverse energy needs across various environments:
                             </p>
                             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {applications.map((app, index) => (
@@ -146,7 +148,7 @@ const Home = () => {
                         </p>
                         <div className="text-6xl font-bold text-emerald-300 mb-4 drop-shadow-lg">28%</div>
                         <p className="text-lg text-emerald-100">
-                            Join the renewable energy revolution with Pankh v2 wind turbine technology
+                            Join the renewable energy revolution with Akseer Pankh wind turbine technology
                         </p>
                     </div>
                 </div>

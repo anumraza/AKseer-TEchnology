@@ -46,7 +46,7 @@ const HeroSection = () => {
             {/* Content */}
             <div className="relative z-10 container mx-auto px-4 text-center">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-                    Pankh <span className="text-green-300 drop-shadow-lg">v2</span>
+                    Akseer <span className="text-green-300 drop-shadow-lg">Pankh</span>
                 </h1>
                 <p className="text-xl md:text-3xl mb-8 font-light animate-fade-in-up delay-200">
                     Harness Nature's Power for Your Energy Needs

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({
-    title = "Akseer Technology - Pankh v2 Wind Turbine | Sustainable Energy Solutions",
+    title = "Akseer Technology - Akseer Pankh  Wind Turbine | Sustainable Energy Solutions",
     description = "Advanced wind turbine for homes, buildings, farms & industries. Sustainable energy solutions with 100 kWh daily capacity.",
     canonical,
     ogImage = "/images/og-image.jpg"
@@ -11,7 +11,7 @@ const SEO = ({
         <Helmet>
             <title>{title}</title>
             <meta name="description" content={description} />
-            <meta name="keywords" content="wind turbine, renewable energy, sustainable energy, Pankh v2, Akseer Technology" />
+            <meta name="keywords" content="wind turbine, renewable energy, sustainable energy, Akseer Pankh , Akseer Technology" />
 
             {/* Open Graph */}
             <meta property="og:title" content={title} />
@@ -32,7 +32,7 @@ const SEO = ({
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Product",
-                    "name": "Pankh v2 Wind Turbine",
+                    "name": "Akseer Pankh Wind Turbine",
                     "description": description,
                     "brand": {
                         "@type": "Brand",
