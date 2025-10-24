@@ -5,9 +5,9 @@ import App from './App.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode basename="/AKseer-TEchnology/">
-    <HelmetProvider>
+  <React.StrictMode >
+    < HelmetProvider >
       <App />
-    </HelmetProvider>
-  </React.StrictMode>,
+    </HelmetProvider >
+  </React.StrictMode >,
 )
