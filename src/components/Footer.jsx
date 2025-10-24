@@ -1,75 +1,85 @@
+// src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: "#E6E6E6" }} className="text-gray-700 py-12">
+        <footer className=" text-gray-700 py-12 border-t-4 border-emerald-500" style={{ backgroundColor: "#e5e5e6" }}>
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                    {/* Company Info */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center md:text-left">
+
+                    {/* 1. Company Info & Logo */}
                     <div>
-                        <div className="flex justify-center md:justify-start items-center space-x-2 mb-4">
+                        <div className="flex justify-center md:justify-start items-center mb-4">
                             <img
                                 src={`${import.meta.env.BASE_URL}images/logoFooter.png`}
-                                alt="Akseer Technology"
-                                className="h-24 w-auto"
+                                alt="Akseer Technology Logo"
+                                className="h-20 w-auto"
+                                loading="lazy"
+                                width={100}
+                                height={80}
                             />
                         </div>
-                        <p className="text-gray-800 mb-4">
-                            Providing sustainable wind energy solutions with Akseer Pankh  - the future of clean energy.
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                            Pioneering sustainable wind energy solutions with Akseer Pankh – cost-effective and highly efficient power generation since 2010.
                         </p>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* 2. Quick Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul className="space-y-2">
+                        <h3 className="text-lg font-bold text-gray-800 mb-4 border-b-2 border-teal-500 pb-1 inline-block">Quick Links</h3>
+                        <ul className="space-y-3">
                             <li>
-                                <Link to="/" className="text-gray-800 hover:text-white transition duration-300">
+                                <Link to="/" className="text-gray-600 hover:text-emerald-700 transition duration-300 font-medium hover:pl-1 block">
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/about" className="text-gray-800 hover:text-white transition duration-300">
+                                <Link to="/about" className="text-gray-600 hover:text-emerald-700 transition duration-300 font-medium hover:pl-1 block">
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/services" className="text-gray-800 hover:text-white transition duration-300">
-                                    Services
+                                <Link to="/services" className="text-gray-600 hover:text-emerald-700 transition duration-300 font-medium hover:pl-1 block">
+                                    Services & Specs
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
+                    {/* 3. Contact Info - Addresses (Fixed Alignment) */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-4">Contact</h3>
-                        <div className="text-gray-800 space-y-3">
-                            <p>
-                                <strong>Head Office:</strong><br />
+                        <h3 className="text-lg font-bold text-gray-800 mb-4 border-b-2 border-teal-500 pb-1 inline-block">Locations</h3>
+                        <div className="text-gray-600 space-y-4">
+                            <p className="flex flex-col items-center md:items-start text-sm">
+                                <strong className="text-gray-800 flex items-center mb-1">
+                                    <span className="text-emerald-600 mr-2">📍</span>Head Office:
+                                </strong>
                                 46/1 Lane 23, Khayaban-E-Badban, Phase VII, DHA, Karachi
                             </p>
-                            <p>
-                                <strong>Factory:</strong><br />
+                            <p className="flex flex-col items-center md:items-start text-sm">
+                                <strong className="text-gray-800 flex items-center mb-1">
+                                    <span className="text-emerald-600 mr-2">🏭</span>Factory:
+                                </strong>
                                 Plot No. 55, Sector 27, Industrial Area, Korangi, Karachi
                             </p>
-                            <p className="flex flex-col items-center">
-                                <a href="tel:02135060170" className="flex items-center hover:text-blue-600">
-                                    📞 021-35060170
-                                </a>
-                                <a href="tel:02135060171" className="flex items-center hover:text-blue-600">
-                                    📞 021-35060171
-                                </a>
-                                <a href="tel:03332134393" className="flex items-center hover:text-blue-600">
-                                    📞 0333-2134393
-                                </a>
-                            </p>
                         </div>
+                    </div>
 
-                        <h3 className="text-lg font-semibold my-4">Email</h3>
-                        <div className="text-gray-800 space-y-2">
-                            <a href="mailto:info@akseertechnology.com" className="hover:text-blue-600">
+                    {/* 4. Phone and Email */}
+                    <div>
+                        <h3 className="text-lg font-bold text-gray-800 mb-4 border-b-2 border-teal-500 pb-1 inline-block">Get in Touch</h3>
+                        <div className="text-gray-600 space-y-3 text-sm">
+                            <strong className="block text-gray-700 mt-2">Sales Hotline:</strong>
+                            <a href="tel:03332134393" className="flex items-center justify-center md:justify-start hover:text-blue-600 transition">
+                                📱 0333-2134393
+                            </a>
+                            <strong className="block text-gray-700 pt-2">Landline:</strong>
+                            <a href="tel:02135060170" className="flex items-center justify-center md:justify-start hover:text-blue-600 transition">
+                                📞 021-35060170
+                            </a>
+                            <strong className="block text-gray-700 pt-2">Email:</strong>
+                            <a href="mailto:info@akseertechnology.com" className="flex items-center justify-center md:justify-start hover:text-blue-600 transition truncate">
                                 ✉️ info@akseertechnology.com
                             </a>
                         </div>
@@ -78,7 +88,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-800">
+                <div className="border-t border-gray-300 mt-10 pt-6 text-center text-gray-500 text-xs">
                     <p>
                         &copy; {new Date().getFullYear()} Akseer Technology. All rights reserved.
                     </p>

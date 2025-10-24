@@ -1,12 +1,17 @@
+// src/hooks/useLazyLoad.js
 import { useEffect, useRef, useState } from 'react';
 
-export const useLazyLoad = (options = {}) => {
+// Hook for triggering content or image loading when element is in view
+export const useLazyLoad = (options = { threshold: 0.1 }) => {
     const [isIntersecting, setIntersecting] = useState(false);
-    const ref = useRef();
+    const ref = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
-            setIntersecting(entry.isIntersecting);
+            if (entry.isIntersecting) {
+                setIntersecting(true);
+                observer.unobserve(entry.target); // Stop observing once visible to prevent re-renders
+            }
         }, options);
 
         if (ref.current) {

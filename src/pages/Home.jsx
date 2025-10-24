@@ -1,7 +1,30 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+// Ensure you have Framer Motion installed: npm install framer-motion
+import { motion } from 'framer-motion';
 
+import SEO from '../components/SEO';
+import GallerySection from '../components/GallerySection'; // Assuming this uses Framer Motion or custom transitions
+
+// Framer Motion Variants for Staggered Section Entrance
+const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: "easeOut",
+            staggerChildren: 0.15,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const Home = () => {
     const features = [
@@ -36,40 +59,48 @@ const Home = () => {
     ];
 
     return (
-        <div>
+        <div className="min-h-screen">
             <SEO
                 title="Akseer Pankh Wind Turbine - Sustainable Home & Industrial Energy Solutions"
                 description="Discover Akseer Pankh wind turbine by Akseer Technology. Cost-effective, compact wind energy solutions for homes, buildings, farms & industries. 100 kWh daily capacity."
             />
 
-            {/* NEW ANIMATED HERO SECTION */}
-            {/* UPDATED HERO SECTION WITH BETTER COLORS */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-700 to-emerald-900 text-white py-20">
-                {/* Content */}
+            {/* NEW ANIMATED HERO SECTION (Uses your custom CSS animations) */}
+            <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-700 to-emerald-900 text-white py-24 md:py-36">
+                {/* Background Animation Placeholders - Ensure your custom CSS is loaded! */}
+                <div className="absolute inset-0 overflow-hidden">
+                    {/* Gentle background glow/orb effects for visual interest */}
+                    <div className="absolute -top-40 -left-40 w-80 h-80 bg-teal-400 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-pulse-slow"></div>
+                    <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-2xl opacity-15 animate-pulse-slow delay-1000"></div>
+                </div>
+
+                {/* Content with Staggered CSS Transitions */}
                 <div className="relative z-10 container mx-auto px-4 text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-                        Akseer <span className="text-emerald-300 drop-shadow-lg">Pankh</span>
+                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up delay-100">
+                        Akseer <span className="text-emerald-300 drop-shadow-xl">Pankh</span>
                     </h1>
-                    <p className="text-xl md:text-3xl mb-8 font-light animate-fade-in-up delay-200 text-emerald-100">
+                    <p className="text-xl md:text-3xl mb-8 font-light animate-fade-in-up delay-300 text-emerald-100 max-w-4xl mx-auto">
                         Harness Nature's Power for Your Energy Needs
                     </p>
-                    <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-200 animate-fade-in-up delay-300">
+                    <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed text-gray-200 animate-fade-in-up delay-500">
                         Revolutionary wind turbine technology delivering clean, sustainable energy
                         for homes and businesses at unprecedented efficiency.
                     </p>
-                    <div className="space-x-4 space-y-4 sm:space-y-0 animate-fade-in-up delay-500">
-                        <button
+                    <div className="space-x-4 space-y-4 sm:space-y-0 animate-fade-in-up delay-700 mt-10">
+                        <motion.button
                             onClick={() => {
-                                window.location.href = "mailto:info@AkseerTech.com";
+                                window.location.href = "mailto:info@akseertechnology.com";
                             }}
-                            className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-1 inline-block"
-                            aria-label="Learn more about our wind turbine services"
+                            className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+                            aria-label="Contact us for wind energy solutions"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
                             Discover Solutions
-                        </button>
+                        </motion.button>
                         <Link
                             to="/about"
-                            className="border-2 border-emerald-400/80 hover:border-emerald-300 bg-transparent hover:bg-emerald-400/10 text-white px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 inline-block"
+                            className="border-2 border-emerald-400/80 hover:border-white bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 inline-block"
                             aria-label="About Akseer Technology"
                         >
                             Our Story
@@ -78,84 +109,136 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Features Section with Better Colors */}
-            <section aria-labelledby="features-heading" className="py-16 bg-gradient-to-b from-slate-50 to-blue-50">
+            {/* FEATURES SECTION (Enhanced with Framer Motion) */}
+            <motion.section
+                aria-labelledby="features-heading"
+                className="py-20 bg-gradient-to-b from-slate-50 to-blue-50"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={sectionVariants}
+            >
                 <div className="container mx-auto px-4">
-                    <h2 id="features-heading" className="text-4xl font-bold text-center mb-12 text-slate-800">
+                    <motion.h2
+                        id="features-heading"
+                        className="text-4xl font-extrabold text-center mb-16 text-slate-800"
+                        variants={itemVariants}
+                    >
                         Why Choose Akseer Pankh Wind Turbine?
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    </motion.h2>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        variants={sectionVariants}
+                    >
                         {features.map((feature, index) => (
-                            <article key={index} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 border border-emerald-100 hover:border-emerald-200 group">
-                                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                            <motion.article
+                                key={index}
+                                className="bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 border-t-4 border-emerald-400/0 hover:border-emerald-500 group"
+                                variants={itemVariants}
+                                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                            >
+                                <div className="text-5xl mb-4 text-emerald-600 group-hover:scale-105 transition-transform duration-300" aria-hidden="true">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-xl font-semibold mb-3 text-slate-800 group-hover:text-emerald-600 transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-3 text-slate-800 group-hover:text-emerald-700 transition-colors duration-300">
                                     {feature.title}
                                 </h3>
                                 <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                            </article>
+                            </motion.article>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
-            {/* Applications Section */}
-            <section aria-labelledby="applications-heading" className="py-16">
+            {/* Gallery Section - Assuming this component has its own internal Framer Motion animations */}
+            <GallerySection />
+
+            {/* APPLICATIONS SECTION (Enhanced with Framer Motion) */}
+            <motion.section
+                aria-labelledby="applications-heading"
+                className="py-20 bg-white"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={sectionVariants}
+            >
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <motion.div variants={itemVariants}>
                             <video
                                 src={`${import.meta.env.BASE_URL}images/home.mp4`}
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                className="rounded-lg shadow-lg w-full h-auto"
+                                className="rounded-2xl shadow-2xl w-full h-auto border-4 border-emerald-200/50"
                                 width={600}
                                 height={400}
                             />
-                        </div>
-                        <div>
-                            <h2 id="applications-heading" className="text-4xl font-bold mb-6 text-gray-800">
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <h2 id="applications-heading" className="text-4xl font-extrabold mb-6 text-gray-800 border-l-4 border-emerald-500 pl-4">
                                 Perfect For Every Setting
                             </h2>
-                            <p className="text-lg text-gray-600 mb-6">
-                                Akseer Pankh wind turbine is designed to meet diverse energy needs across various environments:
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                                The Akseer Pankh wind turbine is compact, silent, and aesthetically pleasing, making it an ideal energy solution for diverse environments, from dense urban areas to remote open landscapes.
                             </p>
-                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <ul className="grid grid-cols-2 gap-4">
                                 {applications.map((app, index) => (
-                                    <li key={index} className="flex items-center space-x-2">
-                                        <span className="w-2 h-2 bg-accent rounded-full" aria-hidden="true"></span>
-                                        <span className="text-gray-700">{app}</span>
-                                    </li>
+                                    <motion.li
+                                        key={index}
+                                        className="flex items-center space-x-3 bg-emerald-50 p-3 rounded-lg shadow-sm font-medium text-emerald-800"
+                                        variants={itemVariants} // Staggered list items
+                                    >
+                                        <span className="text-lg" aria-hidden="true">✅</span>
+                                        <span>{app}</span>
+                                    </motion.li>
                                 ))}
                             </ul>
-                            <div className="mt-8 p-4 bg-green-50 rounded-lg">
-                                <p className="text-green-800 font-semibold">
-                                    Designed for both rural and urban use with low cut-in speed for continuous operation
-                                </p>
-                            </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            {/* Stats Section with Better Colors */}
-            <section aria-labelledby="stats-heading" className="py-16 bg-gradient-to-br from-emerald-900 via-emerald-700 to-emerald-900 text-white">
+            {/* STATS SECTION (Enhanced with Framer Motion) */}
+            <motion.section
+                aria-labelledby="stats-heading"
+                className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={sectionVariants}
+            >
                 <div className="container mx-auto px-4 text-center">
-                    <h2 id="stats-heading" className="text-4xl font-bold mb-12 text-emerald-100">Global Wind Energy Growth</h2>
-                    <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-emerald-500/20 max-w-2xl mx-auto">
+                    <motion.h2
+                        id="stats-heading"
+                        className="text-4xl font-extrabold mb-12 text-emerald-100"
+                        variants={itemVariants}
+                    >
+                        Global Wind Energy Growth
+                    </motion.h2>
+                    <motion.div
+                        className="bg-white/10 backdrop-blur-md p-10 rounded-2xl border-4 border-emerald-500/50 max-w-3xl mx-auto shadow-2xl"
+                        variants={itemVariants}
+                    >
                         <p className="text-xl mb-4 text-gray-200">
-                            Over the past 10 years, cumulative wind power capacity worldwide has increased by an average of
+                            Over the past decade, cumulative wind power capacity worldwide has increased by an average of
                         </p>
-                        <div className="text-6xl font-bold text-emerald-300 mb-4 drop-shadow-lg">28%</div>
-                        <p className="text-lg text-emerald-100">
-                            Join the renewable energy revolution with Akseer Pankh wind turbine technology
+                        <motion.div
+                            className="text-7xl font-black text-teal-300 mb-6 drop-shadow-xl"
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 0.8, type: "spring", stiffness: 150 }}
+                            viewport={{ once: true }}
+                        >
+                            28%
+                        </motion.div>
+                        <p className="text-lg text-emerald-100 font-medium">
+                            Join the rapid renewable energy revolution with Akseer Pankh technology today.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 };
