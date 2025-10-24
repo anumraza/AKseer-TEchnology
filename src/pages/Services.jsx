@@ -300,7 +300,7 @@ const Services = () => {
                         Get a customized consultation to see how Akseer Pankh can revolutionize your energy usage and savings.
                     </p>
                     <a
-                        href="/contact" // Replace with your actual contact path
+                        href="mailto:info@akseertechnology.com"
                         className="inline-block bg-white text-emerald-800 px-10 py-4 rounded-full font-bold shadow-2xl hover:bg-teal-200 hover:text-emerald-900 transition duration-300 text-lg uppercase tracking-wider transform hover:scale-105"
                     >
                         Contact Us for a Free Estimate 🚀
